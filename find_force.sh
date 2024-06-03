@@ -1,1 +1,1 @@
-find ./lost+found force
+find ./lost+found -name *force*.txt
