@@ -1,1 +1,1 @@
-find ~/bootcamp-go/lost+found -name *force*.txt
+find ~ -name *force*.txt
