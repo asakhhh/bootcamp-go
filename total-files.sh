@@ -1,1 +1,1 @@
-ls ./total | wc -l
+find ./total -type f | wc -l
