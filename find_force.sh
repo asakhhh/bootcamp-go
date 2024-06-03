@@ -1,1 +1,1 @@
-find ./lost+found -name "*force*" -exec readlink -f {} \;
+find ./lost+found -type f -name "*force*" -exec readlink -f {} \;
