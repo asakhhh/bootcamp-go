@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sz=$(wc -l poem.txt)
+sz=$(cat poem.txt | wc -l)
 num1=$(expr 1 + $RANDOM % $sz)
 num2=$(expr 1 + $RANDOM % $sz)
 echo $(head -n $num1 poem.txt | tail -1)
