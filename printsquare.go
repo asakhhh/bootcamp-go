@@ -10,9 +10,7 @@ func PrintSquare(w int) {
 				ap.PutRune(' ')
 			}
 		}
-		if i != w-1 {
-			ap.PutRune('\n')
-		}
+		ap.PutRune('\n')
 	}
 }
 
