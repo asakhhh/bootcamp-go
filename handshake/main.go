@@ -9,4 +9,5 @@ func main() {
 	ap.PutRune('e')
 	ap.PutRune('m')
 	ap.PutRune('!')
+	ap.PutRune('\n')
 }
