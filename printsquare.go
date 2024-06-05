@@ -1,4 +1,4 @@
-package main
+package bootcamp
 
 import "github.com/alem-platform/ap"
 
@@ -16,6 +16,6 @@ func PrintSquare(w int) {
 	}
 }
 
-func main() {
-	PrintSquare(92)
-}
+// func main() {
+// 	PrintSquare(92)
+// }
