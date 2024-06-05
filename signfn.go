@@ -1,4 +1,4 @@
-package main
+package bootcamp
 
 import "github.com/alem-platform/ap"
 
@@ -13,6 +13,6 @@ func Sign(n int) {
 	return
 }
 
-func main() {
-	Sign(2024)
-}
+// func main() {
+// 	Sign(2024)
+// }
