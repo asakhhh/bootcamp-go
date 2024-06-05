@@ -3,11 +3,8 @@ package main
 import "github.com/alem-platform/ap"
 
 func main() {
-	ap.PutRune('S')
-	ap.PutRune('a')
-	ap.PutRune('l')
-	ap.PutRune('e')
-	ap.PutRune('m')
-	ap.PutRune('!')
+	for i := 0; i < 10; i++ {
+		ap.PutRune(rune('0' + i))
+	}
 	ap.PutRune('\n')
 }
