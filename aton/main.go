@@ -6,8 +6,10 @@ func main() {
 	var n int
 	fmt.Scanf("%d", &n)
 
-	var s string
-	fmt.Scanf("%s", &s)
+	s := make([]rune, n)
+	for i := 0; i < n; i++ {
+		fmt.Scanf("%c", &s[i])
+	}
 
 	for i := 0; i < n; i++ {
 		fmt.Printf("%d", s[i])
