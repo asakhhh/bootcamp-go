@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/alem-platform/ap"
 )
 
 func main() {
@@ -16,5 +14,4 @@ func main() {
 	} else {
 		fmt.Printf("%d %d %d %d\n", num1+num2, num1-num2, num1*num2, num1/num2)
 	}
-	ap.PutRune('\n')
 }
