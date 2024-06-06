@@ -24,5 +24,5 @@ func main() {
 		}
 	}
 
-	fmt.Printf("%d %d", *mx, *mn)
+	fmt.Printf("%d %d\n", *mx, *mn)
 }
