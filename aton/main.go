@@ -9,9 +9,11 @@ func main() {
 	var r rune
 	for i := 0; i < n; i++ {
 		fmt.Scanf("%c", &r)
-		fmt.Printf("%d", r)
-		if i != n-1 {
-			fmt.Printf(" ")
+		if r != '\n' {
+			fmt.Printf("%d", r)
+			if i != n-1 {
+				fmt.Printf(" ")
+			}
 		}
 	}
 }
