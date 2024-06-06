@@ -9,13 +9,10 @@ func main() {
 	s := make([]rune, n)
 	for i := 0; i < n; i++ {
 		fmt.Scanf("%c", &s[i])
-		if s[i] == '\n' {
-			break
-		}
 	}
 
 	for i := 0; i < n; i++ {
-		fmt.Printf("%d", s[i])
+		fmt.Printf("%d", int(0+s[i]))
 		if i != n-1 {
 			fmt.Printf(" ")
 		}
