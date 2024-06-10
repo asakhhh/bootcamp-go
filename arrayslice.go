@@ -4,6 +4,11 @@ package bootcamp
 
 func ArraySlice(arr [20]int, low int, high int) []int {
 	var a []int
+
+	if high <= 0 {
+		return a
+	}
+
 	for i := low; i < high; i++ {
 		a = append(a, arr[i])
 	}
