@@ -3,7 +3,7 @@ package bootcamp
 // import "fmt"
 
 func ArraySetOne(arr *[20]int, idx int, val int) bool {
-	if idx >= 20 || arr == nil {
+	if idx < 0 || idx >= 20 || arr == nil {
 		return false
 	}
 	(*arr)[idx] = val
