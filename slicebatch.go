@@ -3,7 +3,7 @@ package bootcamp
 func SliceBatch(slice []int, size int) [][]int {
 	var a [][]int
 
-	for i := 0; i+size < len(slice); i += size {
+	for i := 0; i+size <= len(slice); i += size {
 		t := make([]int, size)
 		copy(t, slice[i:i+size])
 		a = append(a, t)
