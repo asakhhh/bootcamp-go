@@ -1,6 +1,10 @@
 package bootcamp
 
 func SliceBatch(slice []int, size int) [][]int {
+	if size <= 0 {
+		return make([][]int, 0)
+	}
+
 	var a [][]int
 
 	for i := 0; i+size <= len(slice); i += size {
