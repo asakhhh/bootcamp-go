@@ -5,7 +5,7 @@ package bootcamp
 func ArraySlice(arr [20]int, low int, high int) []int {
 	var a []int
 
-	if low < 0 || low >= 20 {
+	if low < 0 || high > 20 {
 		return a
 	}
 
