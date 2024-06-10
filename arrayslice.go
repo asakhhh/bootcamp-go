@@ -1,6 +1,6 @@
-package main
+package bootcamp
 
-import "fmt"
+// import "fmt"
 
 func ArraySlice(arr [20]int, low int, high int) []int {
 	var a []int
@@ -10,9 +10,9 @@ func ArraySlice(arr [20]int, low int, high int) []int {
 	return a
 }
 
-func main() {
-	arr := [20]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-	fmt.Println(ArraySlice(arr, 3, 5)) // [3, 4]
-	fmt.Println(ArraySlice(arr, 5, 5)) // []
-	fmt.Println(ArraySlice(arr, 5, 1)) // []
-}
+// func main() {
+// 	arr := [20]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+// 	fmt.Println(ArraySlice(arr, 3, 5)) // [3, 4]
+// 	fmt.Println(ArraySlice(arr, 5, 5)) // []
+// 	fmt.Println(ArraySlice(arr, 5, 1)) // []
+// }
