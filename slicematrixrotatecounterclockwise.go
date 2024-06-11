@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package bootcamp
 
 func SliceMatrixRotateCounterClockwise(matrix [][]rune) {
 	n := len(matrix)
@@ -39,20 +37,20 @@ func SliceMatrixRotateCounterClockwise(matrix [][]rune) {
 	}
 }
 
-func main() {
-	matrix := [][]rune{
-		{'a', 'b', 'c'},
-		{'d', 'e', 'f'},
-		{'g', 'h', 'i'},
-	}
+// func main() {
+// 	matrix := [][]rune{
+// 		{'a', 'b', 'c'},
+// 		{'d', 'e', 'f'},
+// 		{'g', 'h', 'i'},
+// 	}
 
-	fmt.Println(matrix)
+// 	fmt.Println(matrix)
 
-	SliceMatrixRotateCounterClockwise(matrix)
+// 	SliceMatrixRotateCounterClockwise(matrix)
 
-	fmt.Println(matrix)
-	// Output:
-	// g d a
-	// h e b
-	// i f c
-}
+// 	fmt.Println(matrix)
+// 	// Output:
+// 	// g d a
+// 	// h e b
+// 	// i f c
+// }
