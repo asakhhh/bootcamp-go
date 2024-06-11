@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package bootcamp
 
 func IsAlpha(s string) bool {
 	for _, v := range s {
@@ -11,8 +9,8 @@ func IsAlpha(s string) bool {
 	return true
 }
 
-func main() {
-	fmt.Println(IsAlpha("h["))          // false
-	fmt.Println(IsAlpha("Hello123"))    // false
-	fmt.Println(IsAlpha("Hello World")) // false
-}
+// func main() {
+// 	fmt.Println(IsAlpha("h["))          // false
+// 	fmt.Println(IsAlpha("Hello123"))    // false
+// 	fmt.Println(IsAlpha("Hello World")) // false
+// }
