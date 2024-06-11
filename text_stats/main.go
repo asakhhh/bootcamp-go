@@ -119,5 +119,5 @@ func main() {
 	fmt.Printf("Consonants: %d\n", consonants)
 	fmt.Printf("Digits: %d\n", digits)
 	fmt.Printf("Spaces: %d\n", spaces)
-	fmt.Printf("Special Chaacters: %d\n", specials)
+	fmt.Printf("Special Characters: %d\n", specials)
 }
