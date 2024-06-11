@@ -40,6 +40,15 @@ func NotEmpty(s string) bool {
 	return len(s) > 0
 }
 
+func HasAlpha(s string) bool {
+	for _, c := range s {
+		if IsAlpha(c) {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
 	var text string
 	var r rune
@@ -73,7 +82,11 @@ func main() {
 				consonants++
 			}
 		} else if IsNumeric(c) {
-			word += string(c)
+			if is_word {
+				words++
+			}
+			word = ""
+			is_word = false
 			digits++
 		} else if IsPunct(c) {
 			if len(sentence) > 1 {
@@ -108,6 +121,8 @@ func main() {
 	}
 	if is_word {
 		words++
+	}
+	if NotEmpty(sentence) {
 		sentences++
 	}
 
@@ -121,3 +136,8 @@ func main() {
 	fmt.Printf("Spaces: %d\n", spaces)
 	fmt.Printf("Special Characters: %d\n", specials)
 }
+
+/*
+Enter text: Characters: 79\nSentences: 2\nWords: 16\nLetters: 46\nVowels: 7\nConsonants: 39\nDigits: 10\nSpaces: 8\nSpecial Characters: 15
+Enter text: Characters: 79\nSentences: 2\nWords: 22\nLetters: 46\nVowels: 7\nConsonants: 39\nDigits: 10\nSpaces: 8\nSpecial Characters: 15\n
+*/
