@@ -2,7 +2,7 @@ package bootcamp
 
 func IsAlpha(s string) bool {
 	for _, v := range s {
-		if v > rune('z') || v < rune('A') {
+		if v > 'z' || v < 'A' {
 			return false
 		}
 	}
