@@ -16,7 +16,11 @@ func Capitalize(s string) string {
 			}
 			new_word = false
 		} else {
-			t += string(v)
+			if v >= 'A' && v <= 'Z' {
+				t += string(rune(v) - 'A' + 'a')
+			} else {
+				t += string(v)
+			}
 			if v == ' ' {
 				new_word = true
 			}
