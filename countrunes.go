@@ -5,6 +5,7 @@ func CountRunes(s string) int {
 	for _, v := range s {
 		cnt++
 	}
+	return cnt
 }
 
 // func main() {
