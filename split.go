@@ -26,6 +26,9 @@ func Split(s string, sep string) []string {
 	if len(t) > 0 {
 		res = append(res, t)
 	}
+	if len(res) == 0 {
+		res = append(res, "")
+	}
 
 	return res
 }
