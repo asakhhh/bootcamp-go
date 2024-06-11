@@ -111,7 +111,7 @@ func main() {
 		sentences++
 	}
 
-	fmt.Printf("\nCharacters: %d\n", characters)
+	fmt.Printf("Characters: %d\n", characters)
 	fmt.Printf("Sentences: %d\n", sentences)
 	fmt.Printf("Words: %d\n", words)
 	fmt.Printf("Letters: %d\n", letters)
