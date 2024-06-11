@@ -1,6 +1,6 @@
 package bootcamp
 
-func Contains(str string, substr string) bool {
+func contains(str string, substr string) bool {
 	found := 0
 	for _, v := range str {
 		if rune(v) == rune(substr[found]) {
@@ -20,7 +20,7 @@ func ConvertNbrBase(n int, base string) string {
 		return ""
 	}
 	for i := 1; i < len(base); i++ {
-		if Contains(base[:i], string(base[i])) {
+		if contains(base[:i], string(base[i])) {
 			return ""
 		}
 	}
