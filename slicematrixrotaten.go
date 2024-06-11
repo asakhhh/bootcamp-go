@@ -1,9 +1,11 @@
 package bootcamp
 
-func SliceMatrixRotateCounterClockwise(matrix [][]rune) {
-	SliceMatrixRotateClockwise(matrix)
-	SliceMatrixRotateClockwise(matrix)
-	SliceMatrixRotateClockwise(matrix)
+func SliceMatrixRotateN(matrix [][]rune, turns int) {
+	turns = (turns%4 + 4) % 4
+
+	for i := 0; i < turns; i++ {
+		SliceMatrixRotateClockwise(matrix)
+	}
 
 	// n := len(matrix)
 	// a := make([][]rune, n)
