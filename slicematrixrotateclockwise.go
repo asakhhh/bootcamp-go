@@ -2,6 +2,11 @@ package bootcamp
 
 func SliceMatrixRotateClockwise(matrix [][]rune) {
 	n := len(matrix)
+
+	if n == 0 || n != len(matrix[0]) {
+		return
+	}
+
 	a := make([][]rune, n)
 	for i := 0; i < n; i++ {
 		a[i] = make([]rune, n)
