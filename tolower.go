@@ -4,7 +4,7 @@ func ToLower(s string) string {
 	var t string
 	ch := 'A' - 'a'
 	for _, v := range s {
-		if v >= 'A' && v <= 'a' {
+		if v >= 'A' && v <= 'Z' {
 			t = t + string(v-ch)
 		} else {
 			t = t + string(v)
