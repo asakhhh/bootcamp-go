@@ -1,6 +1,6 @@
 package bootcamp
 
-func RemoveIsland(matrix [][]int, x, y int) {
+func IslandRemove(matrix [][]int, x, y int) {
 	if len(matrix) == 0 || len(matrix[0]) == 0 || matrix[y][x] == 0 {
 		return
 	}
