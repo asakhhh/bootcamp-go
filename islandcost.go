@@ -30,13 +30,13 @@ func IslandCost(matrix [][]int, x, y int) int {
 	if y > 0 && !used[y-1][x] && matrix[y-1][x] > 0 {
 		res += IslandCost(matrix, x, y-1)
 	}
-	if y+1 < len(matrix) && !used[y+1][x] && matrix[y-1][x] > 0 {
+	if y+1 < len(matrix) && !used[y+1][x] && matrix[y+1][x] > 0 {
 		res += IslandCost(matrix, x, y+1)
 	}
-	if x > 0 && !used[y][x-1] && matrix[y-1][x] > 0 {
+	if x > 0 && !used[y][x-1] && matrix[y][x-1] > 0 {
 		res += IslandCost(matrix, x-1, y)
 	}
-	if x+1 < len(matrix[y]) && !used[y][x+1] && matrix[y-1][x] > 0 {
+	if x+1 < len(matrix[y]) && !used[y][x+1] && matrix[y][x+1] > 0 {
 		res += IslandCost(matrix, x+1, y)
 	}
 	return res
@@ -45,9 +45,9 @@ func IslandCost(matrix [][]int, x, y int) int {
 // func main() {
 // 	matrix := [][]int{
 // 		{1, 1, 1, 0, 0, 0, 0, 0, 0},
-// 		{1, 1, 0, 0, 1, 0, 0, 0, 0},
-// 		{0, 0, 0, 1, 2, 3, 1, 0, 0},
-// 		{0, 0, 0, 1, 1, 1, 0, 0, 1},
+// 		{1, 1, 0, 0, 0, 0, 0, 0, 0},
+// 		{0, 0, 0, 0, 0, 0, 0, 0, 0},
+// 		{0, 0, 0, 0, 0, 0, 0, 0, 1},
 // 		{0, 1, 0, 0, 0, 0, 0, 1, 2},
 // 		{0, 0, 0, 1, 0, 0, 0, 0, 1},
 // 		{0, 0, 1, 1, 2, 2, 0, 0, 0},
