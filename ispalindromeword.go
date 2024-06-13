@@ -6,6 +6,9 @@ func IsPalindromeWord(s string) bool {
 	if n%2 == 1 && !(s[n/2] >= 'a' && s[n/2] <= 'z') && !(s[n/2] >= 'A' && s[n/2] <= 'Z') {
 		return false
 	}
+	if n == 0 {
+		return true
+	}
 
 	for i := 0; i < n/2; i++ {
 		c1 := s[i]
