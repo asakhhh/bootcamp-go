@@ -23,13 +23,22 @@ func IslandCost(matrix [][]int, x, y int) int {
 			}
 			used = append(used, t)
 		}
-	} else {
-		if used[y][x] {
-			return 0
-		}
 	}
 	used[y][x] = true
-	return matrix[y][x] + IslandCost(matrix, x, y-1) + IslandCost(matrix, x, y+1) + IslandCost(matrix, x-1, y) + IslandCost(matrix, x+1, y)
+	res := matrix[y][x]
+	if y > 0 && !used[y-1][x] {
+		res += IslandCost(matrix, x, y-1)
+	}
+	if y+1 < len(matrix) && !used[y+1][x] {
+		res += IslandCost(matrix, x, y+1)
+	}
+	if x > 0 && !used[y][x-1] {
+		res += IslandCost(matrix, x-1, y)
+	}
+	if x+1 < len(matrix[y]) && !used[y][x+1] {
+		res += IslandCost(matrix, x+1, y)
+	}
+	return res
 }
 
 // func main() {
