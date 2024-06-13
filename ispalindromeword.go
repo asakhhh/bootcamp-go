@@ -7,7 +7,7 @@ func IsPalindromeWord(s string) bool {
 		return false
 	}
 	if n == 0 {
-		return true
+		return false
 	}
 
 	for i := 0; i < n/2; i++ {
