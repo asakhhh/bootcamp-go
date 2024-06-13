@@ -3,7 +3,16 @@ package bootcamp
 var used [][]bool
 
 func IslandCost(matrix [][]int, x, y int) int {
-	if y < 0 || x < 0 || len(matrix) <= y || len(matrix[y]) <= x || matrix[y][x] == 0 || (len(used) != 0 && used[y][x]) {
+	if y < 0 || x < 0 {
+		return 0
+	}
+	if len(matrix) <= y {
+		return 0
+	}
+	if len(matrix[y]) <= x {
+		return 0
+	}
+	if matrix[y][x] == 0 {
 		return 0
 	}
 	if len(used) == 0 {
@@ -13,6 +22,10 @@ func IslandCost(matrix [][]int, x, y int) int {
 				t[i] = false
 			}
 			used = append(used, t)
+		}
+	} else {
+		if used[y][x] {
+			return 0
 		}
 	}
 	used[y][x] = true
