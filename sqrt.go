@@ -10,7 +10,7 @@ func Sqrt(x int) int {
 	}
 
 	if p*p != x {
-		return -1
+		return 0
 	}
 	return p
 }
