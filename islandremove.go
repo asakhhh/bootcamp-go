@@ -6,16 +6,16 @@ func IslandRemove(matrix [][]int, x, y int) {
 	}
 	matrix[y][x] = 0
 	if y > 0 {
-		RemoveIsland(matrix, x, y-1)
+		IslandRemove(matrix, x, y-1)
 	}
 	if y+1 < len(matrix) {
-		RemoveIsland(matrix, x, y+1)
+		IslandRemove(matrix, x, y+1)
 	}
 	if x > 0 {
-		RemoveIsland(matrix, x-1, y)
+		IslandRemove(matrix, x-1, y)
 	}
 	if x+1 < len(matrix[0]) {
-		RemoveIsland(matrix, x+1, y)
+		IslandRemove(matrix, x+1, y)
 	}
 }
 
