@@ -15,7 +15,8 @@ func IslandCost(matrix [][]int, x, y int) int {
 	if matrix[y][x] == 0 {
 		return 0
 	}
-	if len(used) == 0 {
+	if len(used) <= y {
+		used = used[:0]
 		for _, v := range matrix {
 			t := make([]bool, len(v))
 			for i := range t {
