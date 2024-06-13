@@ -48,7 +48,7 @@ func IslandRemove(matrix [][]int, x, y int) {
 // 	// 0 0 0 1 0 0 0 0 1
 // 	// 0 0 1 1 2 2 0 0 0
 
-// 	RemoveIsland(matrix, 4, 2)
+// 	IslandRemove(matrix, 4, 2)
 // 	fmt.Println()
 
 // 	PrintMatrix(matrix)
