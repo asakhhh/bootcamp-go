@@ -13,5 +13,5 @@ func RoundBrackets(s string) bool {
 			}
 		}
 	}
-	return c == 0
+	return c == 0 && len(s) != 0
 }
