@@ -5,7 +5,7 @@ func FibonacciRecursion(n int) int {
 		return -1
 	}
 	if n <= 1 {
-		return 0
+		return n
 	}
 	return FibonacciRecursion(n-1) + FibonacciRecursion(n-2)
 }
