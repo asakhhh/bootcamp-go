@@ -1,7 +1,7 @@
 package bootcamp
 
 func IslandRemove(matrix [][]int, x, y int) {
-	if len(matrix) == 0 || len(matrix[0]) == 0 || matrix[y][x] == 0 {
+	if len(matrix) == 0 || len(matrix[0]) == 0 || x < 0 || x >= len(matrix[0]) || y < 0 || y > len(matrix) || matrix[y][x] == 0 {
 		return
 	}
 	matrix[y][x] = 0
@@ -14,7 +14,7 @@ func IslandRemove(matrix [][]int, x, y int) {
 	if x > 0 {
 		IslandRemove(matrix, x-1, y)
 	}
-	if x+1 < len(matrix[0]) {
+	if x+1 < len(matrix[y]) {
 		IslandRemove(matrix, x+1, y)
 	}
 }
