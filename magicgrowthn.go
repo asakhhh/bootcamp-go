@@ -5,7 +5,7 @@ func MagicGrowthN(n int) []string {
 		return make([]string, 0)
 	}
 	if n == 1 {
-		return []string{"1", "2", "3", "4", "5", "6", "7", "8", "9"}
+		return []string{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
 	}
 
 	var res []string
