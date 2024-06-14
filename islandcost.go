@@ -1,8 +1,6 @@
 package bootcamp
 
-var used [][]bool
-
-func IslandCost(matrix [][]int, x, y int) int {
+func IslandCost1(matrix [][]int, x, y int) int {
 	if y < 0 || x < 0 {
 		return 0
 	}
@@ -15,59 +13,46 @@ func IslandCost(matrix [][]int, x, y int) int {
 	if matrix[y][x] == 0 {
 		return 0
 	}
-	if len(used) <= y {
-		used = used[:0]
-		for _, v := range matrix {
-			t := make([]bool, len(v))
-			for i := range t {
-				t[i] = false
-			}
-			used = append(used, t)
-		}
-	}
-	used[y][x] = true
+
 	res := matrix[y][x]
-	if y > 0 && !used[y-1][x] && matrix[y-1][x] == matrix[y][x] {
-		res += IslandCost(matrix, x, y-1)
+	matrix[y][x] = 0
+	if y > 0 {
+		res += IslandCost1(matrix, x, y-1)
 	}
-	if y+1 < len(matrix) && !used[y+1][x] && matrix[y+1][x] == matrix[y][x] {
-		res += IslandCost(matrix, x, y+1)
+	if y+1 < len(matrix) {
+		res += IslandCost1(matrix, x, y+1)
 	}
-	if x > 0 && !used[y][x-1] && matrix[y][x-1] == matrix[y][x] {
-		res += IslandCost(matrix, x-1, y)
+	if x > 0 {
+		res += IslandCost1(matrix, x-1, y)
 	}
-	if x+1 < len(matrix[y]) && !used[y][x+1] && matrix[y][x+1] == matrix[y][x] {
-		res += IslandCost(matrix, x+1, y)
+	if x+1 < len(matrix[y]) {
+		res += IslandCost1(matrix, x+1, y)
 	}
 	return res
 }
 
+func IslandCost(matrix [][]int, x, y int) int {
+	matrix1 := make([][]int, len(matrix))
+	for i := range matrix {
+		matrix1[i] = make([]int, len(matrix[i]))
+		copy(matrix1[i], matrix[i])
+	}
+	return IslandCost1(matrix1, x, y)
+}
+
 // func main() {
 // 	matrix := [][]int{
-// 		{1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0},
-// 		{1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0},
-// 		{0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1},
-// 		{0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-// 		{0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1},
-// 		{0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0},
-// 		{1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0},
-// 		{1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1},
-// 		{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0},
-// 		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1},
-// 		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0},
-// 		{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1},
-// 		{1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0},
-// 		{1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0},
-// 		{0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0},
-// 		{1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0},
-// 		{1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0},
-// 		{0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0},
-// 		{1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1},
-// 		{1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1},
+// 		{1, 1, 1, 0, 0, 0, 0, 0, 0},
+// 		{1, 1, 0, 0, 1, 0, 0, 0, 0},
+// 		{0, 0, 0, 1, 2, 3, 1, 0, 0},
+// 		{0, 0, 0, 1, 1, 1, 0, 0, 1},
+// 		{0, 1, 0, 0, 0, 0, 0, 1, 2},
+// 		{0, 0, 0, 1, 0, 0, 0, 0, 1},
+// 		{0, 0, 1, 1, 2, 2, 0, 0, 0},
 // 	}
 
-// 	fmt.Println(IslandCost(matrix, 6, 10)) // 11
-// 	fmt.Println(IslandCost(matrix, 0, 0))  // 5
-// 	fmt.Println(IslandCost(matrix, 1, 4))  // 1
-// 	fmt.Println(IslandCost(matrix, 0, 3))  // 0
+// 	fmt.Println(IslandCost(matrix, 4, 2)) // 11
+// 	fmt.Println(IslandCost(matrix, 0, 0)) // 5
+// 	fmt.Println(IslandCost(matrix, 1, 4)) // 1
+// 	fmt.Println(IslandCost(matrix, 0, 3)) // 0
 // }
