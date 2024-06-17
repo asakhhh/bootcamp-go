@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package bootcamp
 
 func ToLower(s string) string {
 	var t string
@@ -163,7 +161,7 @@ func MorseToText(s string) string {
 	return res
 }
 
-func main() {
-	fmt.Println(MorseToText("... --- ..."))                                                       // SOS
-	fmt.Println(MorseToText("... .- .-.. . -- --..-- .... --- .-- .- .-. . -.-- --- ..- ..--..")) // SALEM,HOWAREYOU?
-}
+// func main() {
+// 	fmt.Println(MorseToText("... --- ..."))                                                       // SOS
+// 	fmt.Println(MorseToText("... .- .-.. . -- --..-- .... --- .-- .- .-. . -.-- --- ..- ..--..")) // SALEM,HOWAREYOU?
+// }
