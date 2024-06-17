@@ -1,6 +1,6 @@
-package main
+// package main
 
-// package bootcamp
+package bootcamp
 
 import (
 	"crypto/md5"
