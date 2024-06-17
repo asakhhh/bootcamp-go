@@ -49,14 +49,13 @@ func Split(s string, sep string) []string {
 	return res
 }
 
-func CountSubstr(s, substr string) int {
+func CountSubstr(s []string, substr string) int {
 	cnt := 0
-	for i := 0; i < len(s); i++ {
-		if i+len(substr) <= len(s) && s[i:i+len(substr)] == substr {
+	for _, v := range s {
+		if substr == v {
 			cnt++
 		}
 	}
-
 	return cnt
 }
 
@@ -66,7 +65,7 @@ func CountWords(s string) map[string]int {
 	res := make(map[string]int)
 
 	for _, v := range t {
-		res[v] = CountSubstr(ss, v)
+		res[v] = CountSubstr(t, v)
 	}
 
 	return res
