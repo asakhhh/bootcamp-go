@@ -1,5 +1,19 @@
 package bootcamp
 
+func ToLower(s string) string {
+	var t string
+	ch := 'A' - 'a'
+	for _, v := range s {
+		if v >= 'a' && v <= 'z' {
+			t = t + string(v+ch)
+		} else {
+			t = t + string(v)
+		}
+	}
+
+	return t
+}
+
 func TextToMorse(s string) string {
 	m := map[rune]string{
 		'A': ".-",
@@ -42,8 +56,12 @@ func TextToMorse(s string) string {
 		',': "--..--",
 		'?': "..--..",
 	}
+	s = ToLower(s)
 	var res string
 	for i, c := range s {
+		if c == ' ' {
+			continue
+		}
 		res += m[c]
 		if i != len(s)-1 {
 			res += " "
@@ -52,3 +70,8 @@ func TextToMorse(s string) string {
 
 	return res
 }
+
+// func main() {
+// 	fmt.Println(TextToMorse("SOS"))                 // ... --- ...
+// 	fmt.Println(TextToMorse("salem, how are you?")) // ... .- .-.. . -- --..-- .... --- .-- .- .-. . -.-- --- ..- ..--..
+// }
