@@ -1,5 +1,23 @@
 package bootcamp
 
+func Contains(m map[string]int, key string) bool {
+	_, ok := m[key]
+	return ok
+}
+
+func Pow10(num int) int {
+	if num >= 1000 {
+		return 3
+	}
+	if num >= 100 {
+		return 2
+	}
+	if num >= 10 {
+		return 1
+	}
+	return 0
+}
+
 func RomanToInt(s string) int {
 	m := map[string]int{
 		"I":    1,
@@ -35,13 +53,37 @@ func RomanToInt(s string) int {
 	}
 
 	num := 0
-	current_pos := 3
-
-	for i, c := range s {
-		v, ok := m[string(c)]
-		if !ok {
+	current_pos := 4
+	i := 0
+	for i < len(s) {
+		found := false
+		for l := 4; l > 0; l-- {
+			if i+l <= len(s) && Contains(m, s[i:i+l]) {
+				found = true
+				add := m[s[i:i+l]]
+				if current_pos <= Pow10(add) {
+					return 0
+				}
+				current_pos = Pow10(add)
+				// fmt.Printf("curpos == %d\n", current_pos)
+				num += add
+				i += l
+				break
+			}
+		}
+		if !found {
 			return 0
 		}
-		if i + 2 <= len(s)
 	}
+	return num
 }
+
+// func main() {
+// 	fmt.Println(RomanToInt("III"))     // 3
+// 	fmt.Println(RomanToInt("IV"))      // 4
+// 	fmt.Println(RomanToInt("IX"))      // 9
+// 	fmt.Println(RomanToInt("LVIII"))   // 58
+// 	fmt.Println(RomanToInt("MCMXCIV")) // 1994
+// 	fmt.Println(RomanToInt(""))        // 0
+// 	fmt.Println(RomanToInt("salem"))   // 0
+// }
