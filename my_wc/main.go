@@ -86,12 +86,16 @@ func LineCount(s string) int {
 	return len(t)
 }
 
+func IsAlpha(c rune) bool {
+	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+}
+
 func WordCount(s string) int {
 	var t string
 	ans := 0
 
 	for _, c := range s {
-		if c != ' ' && c != '\n' {
+		if IsAlpha(c) {
 			t += string(c)
 		}
 		if c == ' ' || c == '\n' && t != "" {
