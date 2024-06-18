@@ -20,6 +20,10 @@ func Split(s string, sep string) []string {
 	var t string
 	var res []string
 
+	if s == "" {
+		return res
+	}
+
 	for _, c := range s {
 		t += string(c)
 		if c == '\n' {
