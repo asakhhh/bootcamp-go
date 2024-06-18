@@ -17,15 +17,14 @@ func main() {
 	if len(t) == 0 {
 		PrintString("usage: my_cat file ...")
 	} else {
-		var text string
 		for _, v := range t {
 			txt, err := os.ReadFile(v)
 			if err != nil {
 				PrintString("my_cat: " + v + ": No such file or directory")
-				return
+			} else {
+				PrintString(string(txt))
 			}
-			text += string(txt)
+			ap.PutRune('\n')
 		}
-		PrintString(text)
 	}
 }
