@@ -50,6 +50,7 @@ func RomanToInt(s string) int {
 		"M":    1000,
 		"MM":   2000,
 		"MMM":  3000,
+		"MMMM": 4000,
 	}
 
 	num := 0
