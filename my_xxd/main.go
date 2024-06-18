@@ -25,12 +25,12 @@ func ToNum(s string) int {
 	minus := false
 	first := 0
 
-	// if s[0] == '-' {
-	// 	minus = true
-	// }
-	// if s[0] == '-' || s[0] == '+' {
-	// 	first++
-	// }
+	if s[0] == '-' {
+		minus = true
+	}
+	if s[0] == '-' || s[0] == '+' {
+		first++
+	}
 
 	var n int
 	for i := first; i < len(s); i++ {
@@ -74,12 +74,12 @@ func ToHex(n, l int) string {
 func NoNewline(s string) string {
 	var res string
 
-	if s[0] == ' ' {
-		s = s[1:]
-	}
-	if s[len(s)-1] == ' ' {
-		s = s[:len(s)-1]
-	}
+	// if s[0] == ' ' {
+	// 	s = s[1:]
+	// }
+	// if s[len(s)-1] == ' ' {
+	// 	s = s[:len(s)-1]
+	// }
 
 	for _, v := range s {
 		if v == '\n' {
