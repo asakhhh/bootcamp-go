@@ -71,6 +71,18 @@ func ToHex(n, l int) string {
 	return Reversed(res)
 }
 
+func NoNewline(s string) string {
+	var res string
+	for _, v := range s {
+		if v == '\n' {
+			res += "."
+		} else {
+			res += string(v)
+		}
+	}
+	return res
+}
+
 func main() {
 	args := os.Args[1:]
 	var c int
@@ -98,6 +110,7 @@ func main() {
 
 	i := 0
 	s := string(txt)
+
 	for i < len(s) {
 		j := i + c
 		if j > len(s) {
@@ -115,7 +128,7 @@ func main() {
 		for x := 0; x < 2*(i+c-j)+(i+c-j+1)/2; x++ {
 			ap.PutRune(' ')
 		}
-		PrintString(" " + s[i:j] + "\n")
+		PrintString(" " + NoNewline(s[i:j]) + "\n")
 		i = j
 	}
 }
