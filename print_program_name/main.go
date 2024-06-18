@@ -1,6 +1,9 @@
-package bootcamp
+package main
 
 import (
+	"fmt"
+	"os"
+
 	"github.com/alem-platform/ap"
 )
 
@@ -47,6 +50,6 @@ func LastElement(a []string) string {
 	return a[len(a)-1]
 }
 
-// func main() {
-// 	fmt.Println(LastElement(Split(os.Args[0], "/")))
-// }
+func main() {
+	fmt.Println(LastElement(Split(os.Args[0], "/")))
+}
