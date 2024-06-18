@@ -153,7 +153,7 @@ func main() {
 			}
 			ap.PutRune(' ')
 		}
-		if j == len(s) {
+		if i+c > j {
 			for x := 0; x < 5*(c/2)+1-2*(j-i)-(j-i+1)/2; x++ {
 				ap.PutRune(' ')
 			}
