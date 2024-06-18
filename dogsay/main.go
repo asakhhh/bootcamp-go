@@ -65,7 +65,8 @@ func PrintText(s string) {
 	}
 
 	ap.PutRune(' ')
-	for i := 0; i < length+2; i++ {
+	PrintString("______")
+	for i := 6; i < length+2; i++ {
 		ap.PutRune('_')
 	}
 	ap.PutRune('\n')
@@ -81,7 +82,8 @@ func PrintText(s string) {
 	}
 
 	ap.PutRune(' ')
-	for i := 0; i < length+2; i++ {
+	PrintString("------")
+	for i := 6; i < length+2; i++ {
 		ap.PutRune('-')
 	}
 	ap.PutRune('\n')
