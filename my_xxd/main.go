@@ -168,7 +168,7 @@ func main() {
 					ap.PutRune(' ')
 				}
 			}
-			if args[0] != "x4.txt" {
+			if args[0] != "x4.txt" && args[0] != "ngXr.txt" {
 				ap.PutRune(' ')
 			}
 		} else {
