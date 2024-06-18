@@ -125,7 +125,7 @@ func main() {
 			}
 			ap.PutRune(' ')
 		}
-		for x := 0; x < 2*(i+c-j)+(i+c-j+1)/2; x++ {
+		for x := 0; x < 2*(i+c-j)+(i+c-j)/2; x++ {
 			ap.PutRune(' ')
 		}
 		PrintString(" " + NoNewline(s[i:j]) + "\n")
