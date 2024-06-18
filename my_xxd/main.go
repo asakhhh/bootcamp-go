@@ -73,6 +73,11 @@ func ToHex(n, l int) string {
 
 func NoNewline(s string) string {
 	var res string
+
+	if s == " " {
+		return res
+	}
+
 	for _, v := range s {
 		if v == '\n' {
 			res += "."
