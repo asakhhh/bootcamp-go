@@ -1,9 +1,8 @@
-package main
+package bootcamp
 
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"fmt"
 )
 
 func BruteForceHash(hash string) string {
@@ -14,7 +13,7 @@ func BruteForceHash(hash string) string {
 	if len(hash) != 32 {
 		return ""
 	}
-	for _, c := hash {
+	for _, c := range hash {
 		if !(c >= '0' && c <= '9') && !(c >= 'a' && c <= 'f') {
 			return ""
 		}
@@ -56,9 +55,9 @@ func generateString(targetHash string, result []byte, pos int, characters string
 	return false
 }
 
-func main() {
-	fmt.Println(BruteForceHash("ab6ccd17455d5347c49606d641e0b2af")) // SALEM
-	fmt.Println(BruteForceHash("3cbfa33db66b830bfcf47ecc956505f8")) // ALEM
-	fmt.Println(BruteForceHash(""))                                 //
-	fmt.Println(BruteForceHash("abc"))                              //
-}
+// func main() {
+// 	fmt.Println(BruteForceHash("ab6ccd17455d5347c49606d641e0b2af")) // SALEM
+// 	fmt.Println(BruteForceHash("3cbfa33db66b830bfcf47ecc956505f8")) // ALEM
+// 	fmt.Println(BruteForceHash(""))                                 //
+// 	fmt.Println(BruteForceHash("abc"))                              //
+// }
