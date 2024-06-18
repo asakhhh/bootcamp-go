@@ -132,7 +132,7 @@ func main() {
 
 	txt, err := os.ReadFile(args[0])
 	if err != nil {
-		PrintString("my_xxd: <" + args[0] + ">: No such file or directory\n")
+		PrintString("my_xxd: " + args[0] + ": No such file or directory\n")
 		return
 	}
 
