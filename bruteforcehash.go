@@ -1,8 +1,7 @@
-package main
+package bootcamp
 
 import (
 	"crypto/md5"
-	"fmt"
 )
 
 func hexToByte(c byte) byte {
@@ -66,9 +65,9 @@ func BruteForceHash(hash string) string {
 	return BruteForceHash1(hexStringToByteArray(hash))
 }
 
-func main() {
-	fmt.Println(BruteForceHash("ab6ccd17455d5347c49606d641e0b2af")) // SALEM
-	fmt.Println(BruteForceHash("3cbfa33db66b830bfcf47ecc956505f8")) // ALEM
-	fmt.Println(BruteForceHash(""))                                 //
-	fmt.Println(BruteForceHash("abc"))                              //
-}
+// func main() {
+// 	fmt.Println(BruteForceHash("ab6ccd17455d5347c49606d641e0b2af")) // SALEM
+// 	fmt.Println(BruteForceHash("3cbfa33db66b830bfcf47ecc956505f8")) // ALEM
+// 	fmt.Println(BruteForceHash(""))                                 //
+// 	fmt.Println(BruteForceHash("abc"))                              //
+// }
