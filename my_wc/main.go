@@ -145,7 +145,7 @@ func main() {
 
 			PrintString(Join(res, " "))
 
-			PrintString(" " + t[0])
+			PrintString(" " + t[len(t)-1])
 			ap.PutRune('\n')
 		}
 	}
