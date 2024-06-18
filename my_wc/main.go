@@ -26,13 +26,6 @@ func Split(s string, sep string) []string {
 	var t string
 	var res []string
 
-	if sep == "" {
-		for _, c := range s {
-			res = append(res, string(c))
-		}
-		return res
-	}
-
 	for _, c := range s {
 		t += string(c)
 		if rune(c) == rune(sep[on_sep]) {
@@ -98,7 +91,9 @@ func WordCount(s string) int {
 	ans := 0
 
 	for _, c := range s {
-		t += string(c)
+		if c != ' ' && c != '\n' {
+			t += string(c)
+		}
 		if c == ' ' || c == '\n' && t != "" {
 			ans++
 			t = ""
