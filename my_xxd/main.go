@@ -25,12 +25,12 @@ func ToNum(s string) int {
 	minus := false
 	first := 0
 
-	if s[0] == '-' {
-		minus = true
-	}
-	if s[0] == '-' || s[0] == '+' {
-		first++
-	}
+	// if s[0] == '-' {
+	// 	minus = true
+	// }
+	// if s[0] == '-' || s[0] == '+' {
+	// 	first++
+	// }
 
 	var n int
 	for i := first; i < len(s); i++ {
