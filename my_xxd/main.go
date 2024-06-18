@@ -157,7 +157,14 @@ func main() {
 			if args[0] == "8boJ.txt" {
 				PrintString("     ")
 			} else {
-				for x := 1; x < 5*((c-1)/2)+3*(c%2)+1-2*(j-i)-(j-i+1)/2; x++ {
+				ln := 5*((c-1)/2) + 1
+				if c%2 == 0 {
+					ln += 5
+				} else {
+					ln += 3
+				}
+				ln1 := 2*(j-i) + (j-i+1)/2
+				for x := 1; x < ln-ln1; x++ {
 					ap.PutRune(' ')
 				}
 			}
