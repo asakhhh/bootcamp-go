@@ -21,10 +21,10 @@ func main() {
 			txt, err := os.ReadFile(v)
 			if err != nil {
 				PrintString("my_cat: " + v + ": No such file or directory")
+				ap.PutRune('\n')
 			} else {
 				PrintString(string(txt))
 			}
-			ap.PutRune('\n')
 		}
 	}
 }
