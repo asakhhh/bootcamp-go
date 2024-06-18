@@ -98,7 +98,7 @@ func WordCount(s string) int {
 		if IsAlpha(c) {
 			t += string(c)
 		}
-		if c == ' ' || c == '\n' && t != "" {
+		if (c == ' ' || c == '\n') && t != "" {
 			ans++
 			t = ""
 		}
