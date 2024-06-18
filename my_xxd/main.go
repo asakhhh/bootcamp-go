@@ -82,7 +82,7 @@ func NoNewline(s string) string {
 	// }
 
 	for _, v := range s {
-		if v == '\n' {
+		if v < 32 || v > 126 {
 			res += "."
 		} else {
 			res += string(v)
