@@ -73,6 +73,8 @@ func PrintText(s string) {
 
 	if len(lines) == 1 {
 		PrintString("< " + lines[0] + " >\n")
+	} else if len(lines) == 0 {
+		PrintString("< >\n")
 	} else {
 		PrintString("/ " + lines[0] + " \\\n")
 		for i := 1; i+1 < len(lines); i++ {
