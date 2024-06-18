@@ -153,8 +153,10 @@ func main() {
 			}
 			ap.PutRune(' ')
 		}
-		for x := 1; x < 2*(i+c-j)+(i+c-j+1)/2; x++ {
-			ap.PutRune(' ')
+		if j == len(s) {
+			for x := 0; x < 2*(i+c-j)+(i+c-j+1)/2; x++ {
+				ap.PutRune(' ')
+			}
 		}
 		PrintString(" " + NoNewline(s[i:j]) + "\n")
 		i = j
