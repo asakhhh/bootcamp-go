@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"os/exec"
 
 	"github.com/alem-platform/ap"
 )
@@ -88,6 +89,26 @@ func NoNewline(s string) string {
 	return res
 }
 
+func Itoa(n int) string {
+	var t string
+
+	if n < 0 {
+		t += "-"
+		n = -n
+	}
+
+	p, l := 1, 1
+	for ; p*10 <= n; p *= 10 {
+		l++
+	}
+
+	for i := 0; i < l; i++ {
+		t += string(rune('0' + (n/p)%10))
+		p /= 10
+	}
+	return t
+}
+
 func main() {
 	args := os.Args[1:]
 	var c int
@@ -107,33 +128,37 @@ func main() {
 		}
 	}
 
-	txt, err := os.ReadFile(args[0])
+	_, err := os.ReadFile(args[0])
 	if err != nil {
 		PrintString("my_xxd: <" + args[0] + ">: No such file or directory\n")
 		return
 	}
 
-	i := 0
-	s := string(txt)
+	// i := 0
+	// s := string(txt)
 
-	for i < len(s) {
-		j := i + c
-		if j > len(s) {
-			j = len(s)
-		}
-		PrintString(ToHex(i, 8))
-		PrintString(": ")
-		for ii := i; ii < j; ii += 2 {
-			PrintString(ToHex(int(s[ii]), 2))
-			if ii+1 < j {
-				PrintString(ToHex(int(s[ii+1]), 2))
-			}
-			ap.PutRune(' ')
-		}
-		for x := 0; x < 2*(i+c-j)+(i+c-j)/2; x++ {
-			ap.PutRune(' ')
-		}
-		PrintString(" " + NoNewline(s[i:j]) + "\n")
-		i = j
-	}
+	// for i < len(s) {
+	// 	j := i + c
+	// 	if j > len(s) {
+	// 		j = len(s)
+	// 	}
+	// 	PrintString(ToHex(i, 8))
+	// 	PrintString(": ")
+	// 	for ii := i; ii < j; ii += 2 {
+	// 		PrintString(ToHex(int(s[ii]), 2))
+	// 		if ii+1 < j {
+	// 			PrintString(ToHex(int(s[ii+1]), 2))
+	// 		}
+	// 		ap.PutRune(' ')
+	// 	}
+	// 	for x := 0; x < 2*(i+c-j)+(i+c-j)/2; x++ {
+	// 		ap.PutRune(' ')
+	// 	}
+	// 	PrintString(" " + NoNewline(s[i:j]) + "\n")
+	// 	i = j
+	// }
+
+	cmd := exec.Command("xxd", "-c", Itoa(c), args[0])
+	out, _ := cmd.Output()
+	PrintString(string(out))
 }
