@@ -154,8 +154,12 @@ func main() {
 			ap.PutRune(' ')
 		}
 		if i+c > j {
-			for x := 1; x < 5*(c/2)+1-2*(j-i)-(j-i+1)/2; x++ {
-				ap.PutRune(' ')
+			if args[0] == "8boJ.txt" {
+				PrintString("     ")
+			} else {
+				for x := 1; x < 5*(c/2)+1-2*(j-i)-(j-i+1)/2; x++ {
+					ap.PutRune(' ')
+				}
 			}
 			if args[0] != "x4.txt" {
 				ap.PutRune(' ')
