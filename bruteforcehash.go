@@ -4,67 +4,60 @@ import (
 	"crypto/md5"
 )
 
-func hexToByte(c byte) byte {
-	if '0' <= c && c <= '9' {
-		return c - '0'
+const charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+
+// Helper function to convert byte slice to hexadecimal string
+func bytesToHex(data [16]byte) string {
+	hexChars := "0123456789abcdef"
+	result := make([]byte, 32)
+	for i, b := range data {
+		result[i*2] = hexChars[b>>4]
+		result[i*2+1] = hexChars[b&0x0f]
 	}
-	if 'a' <= c && c <= 'f' {
-		return c - 'a' + 10
-	}
-	return c - 'A' + 10
+	return string(result)
 }
 
-// hexStringToByteArray converts a valid hex string to a [16]byte array.
-func hexStringToByteArray(hexStr string) [16]byte {
-	var result [16]byte
-	for i := 0; i < 16; i++ {
-		highNibble := hexToByte(hexStr[2*i])
-		lowNibble := hexToByte(hexStr[2*i+1])
-		result[i] = (highNibble << 4) | lowNibble
-	}
-	return result
+// Helper function to compute the MD5 hash of a string and return its hexadecimal representation
+func computeMD5Hex(s string) string {
+	hash := md5.Sum([]byte(s))
+	return bytesToHex(hash)
 }
 
-func BruteForceHash1(targetHash [16]byte) string {
-	const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-	maxLength := 6
-
-	var helper func(prefix string, length int) string
-	helper = func(prefix string, length int) string {
-		if length > maxLength {
-			return ""
+// Recursive function to generate all combinations of the given charset
+func generate(prefix string, length int, targetHash string) (string, bool) {
+	if length == 0 {
+		if computeMD5Hex(prefix) == targetHash {
+			return prefix, true
 		}
-
-		h := md5.Sum([]byte(prefix))
-		if h == targetHash {
-			return prefix
-		}
-
-		for _, c := range chars {
-			result := helper(prefix+string(c), length+1)
-			if result != "" {
-				return result
-			}
-		}
-		return ""
+		return "", false
 	}
-
-	return helper("", 0)
+	for _, char := range charset {
+		result, found := generate(prefix+string(char), length-1, targetHash)
+		if found {
+			return result, true
+		}
+	}
+	return "", false
 }
 
+// BruteForceHash function definition
 func BruteForceHash(hash string) string {
 	if len(hash) != 32 {
 		return ""
 	}
-	for _, c := range hash {
-		if !(c >= '0' && c <= '9') && !(c >= 'a' && c <= 'f') {
-			return ""
+
+	// Try all lengths from 1 to 6
+	for length := 1; length <= 6; length++ {
+		result, found := generate("", length, hash)
+		if found {
+			return result
 		}
 	}
 
-	return BruteForceHash1(hexStringToByteArray(hash))
+	return ""
 }
 
+// // Main function for testing
 // func main() {
 // 	fmt.Println(BruteForceHash("ab6ccd17455d5347c49606d641e0b2af")) // SALEM
 // 	fmt.Println(BruteForceHash("3cbfa33db66b830bfcf47ecc956505f8")) // ALEM
