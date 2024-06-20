@@ -20,6 +20,9 @@ func PrintNum(n, length int) {
 }
 
 func PrintSpiral(n int) {
+	if n <= 0 {
+		return
+	}
 	y := (n - 1) / 2
 	x := y
 	dy := []int{0, 1, 0, -1}
