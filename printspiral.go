@@ -50,14 +50,16 @@ func PrintSpiral(n int) {
 		length++
 	}
 
-	for _, v := range a {
+	for i, v := range a {
 		for ii, vv := range v {
 			PrintNum(vv, length)
 			if ii != n-1 {
 				ap.PutRune(' ')
 			}
 		}
-		ap.PutRune('\n')
+		if i != n-1 {
+			ap.PutRune('\n')
+		}
 	}
 }
 
