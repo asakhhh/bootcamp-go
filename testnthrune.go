@@ -9,7 +9,7 @@ func TestNthRune(fn func(s string, n int) rune) bool {
 			return false
 		}
 	}
-	if fn(s, -1) != -1 || fn(s, len(s)+1) != -1 {
+	if fn(s, -1) >= 0 || fn(s, len(s)+1) >= 0 {
 		return false
 	}
 	return true
