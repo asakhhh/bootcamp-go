@@ -50,8 +50,8 @@ func PrintSpiral(n int) {
 		length++
 	}
 
-	for i, v := range a {
-		for ii, vv := range v {
+	for i, v := range a[:n] {
+		for ii, vv := range v[:n] {
 			PrintNum(vv, length)
 			if ii != n-1 {
 				ap.PutRune(' ')
@@ -64,5 +64,5 @@ func PrintSpiral(n int) {
 }
 
 // func main() {
-// 	PrintSpiral(4)
+// 	PrintSpiral(1)
 // }
