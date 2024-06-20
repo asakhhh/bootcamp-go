@@ -27,9 +27,9 @@ func PrintSpiral(n int) {
 	curdir := 0
 	curmoved := 0
 
-	a := make([][]int, n)
+	a := make([][]int, n+1)
 	for i := 0; i < n; i++ {
-		a[i] = make([]int, n)
+		a[i] = make([]int, n+1)
 	}
 
 	for i := 0; i < n*n; i++ {
