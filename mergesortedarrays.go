@@ -15,7 +15,7 @@ func MergeSortedArrays(arr1, arr2 []int) []int {
 			res = append(res, arr1[pt1])
 			pt1++
 		} else {
-			res = append(res, arr1[pt1])
+			res = append(res, arr2[pt2])
 			pt1++
 		}
 	}
