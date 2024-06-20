@@ -1,7 +1,7 @@
 package bootcamp
 
 func TestNthRune(fn func(s string, n int) rune) bool {
-	s := "abacabac11"
+	s := "\n abacabac11\n"
 
 	r := []rune(s)
 	for i := 0; i < len(r); i++ {
