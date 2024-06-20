@@ -80,7 +80,6 @@ func main() {
 		if s > 0 {
 			PrintNum(s)
 			ap.PutRune('s')
-			ap.PutRune(' ')
 		}
 	}
 	ap.PutRune('\n')
