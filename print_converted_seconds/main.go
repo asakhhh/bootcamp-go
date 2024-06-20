@@ -61,7 +61,7 @@ func main() {
 		h := t / 3600
 		t %= 3600
 		m := t / 60
-		t %= 60
+		s := t % 60
 		if d > 0 {
 			PrintNum(d)
 			ap.PutRune('d')
@@ -80,11 +80,11 @@ func main() {
 			PrintNum(m)
 			ap.PutRune('m')
 		}
-		if t > 0 {
+		if s > 0 {
 			if d > 0 || h > 0 || m > 0 {
 				ap.PutRune(' ')
 			}
-			PrintNum(t)
+			PrintNum(s)
 			ap.PutRune('s')
 		}
 	}
