@@ -65,27 +65,22 @@ func main() {
 		if d > 0 {
 			PrintNum(d)
 			ap.PutRune('d')
+			ap.PutRune(' ')
 		}
 		if h > 0 {
-			if d > 0 {
-				ap.PutRune(' ')
-			}
 			PrintNum(h)
 			ap.PutRune('h')
+			ap.PutRune(' ')
 		}
 		if m > 0 {
-			if d > 0 || h > 0 {
-				ap.PutRune(' ')
-			}
 			PrintNum(m)
 			ap.PutRune('m')
+			ap.PutRune(' ')
 		}
 		if s > 0 {
-			if d > 0 || h > 0 || m > 0 {
-				ap.PutRune(' ')
-			}
 			PrintNum(s)
 			ap.PutRune('s')
+			ap.PutRune(' ')
 		}
 	}
 	ap.PutRune('\n')
