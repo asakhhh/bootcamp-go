@@ -10,7 +10,7 @@ func PaddingStart(s string, n int) string {
 }
 
 // func main() {
-// 	fmt.Printf("%q\n", PaddingStart("salem", 10))
-// 	fmt.Printf("%q\n", PaddingStart("salem𐙚", 10))
-// 	fmt.Printf("%q\n", PaddingStart("salem", 10))
+// 	fmt.Printf("%q\n", PaddingStart("salem", 10))   // "     salem"
+// 	fmt.Printf("%q\n", PaddingStart("salem 😀", 10)) // "   salem 😀"
+// 	fmt.Printf("%q\n", PaddingStart("salem", 1))    // "salem"
 // }
