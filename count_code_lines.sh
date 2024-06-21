@@ -1,34 +1,27 @@
 #!/bin/bash
 
-# Function to display usage message
-usage() {
-  echo "usage: $0 dir_path"
-  exit 1
-}
+
+
+# Check if the number of arguments is zero
+if [ "$#" -eq 0 ]; then
+  echo "usage: ./count_code_lines dir_path"
+  exit 0
+fi
 
 # Check if an argument is provided
-if [ $# -eq 0 ]; then
-  usage
-fi
-
-DIR=$1
 
 # Check if the argument is a directory
-if [ ! -d "$DIR" ]; then
-  if [ -e "$DIR" ]; then
-    echo "error: $DIR is not a directory"
-  else
-    echo "error: directory $DIR not found"
-  fi
-  exit 1
+if [ ! -d "$1" ]; then
+    if [ -e "$1" ]; then
+        echo "error: $1 is not a directory"
+    else
+        echo "error: directory $1 not found"
+    fi
+    exit 0
 fi
 
-# Directories to exclude from the count
-EXCLUDE_DIRS="node_modules build dest .git"
+# Define directories to exclude
+EXCLUDED_DIRS="node_modules|build|dest|.git"
 
-# Find all files in the directory, excluding the specified directories
-find "$DIR" -type d \( $(printf -- "-name %s -o " $EXCLUDE_DIRS | sed 's/ -o $//') \) -prune -o -type f -print |
-while IFS= read -r file; do
-  # Count non-empty lines in the file
-  grep -v '^\s*$' "$file"
-done | wc -l
+# Find all files, excluding the specified directories, and count the lines of code
+find "$1" -type d \( -path "*/node_modules" -o -path "*/build" -o -path "*/dest" -o -path "*/.git" \) -prune -false -o -type f -exec grep -v '^\s*$' {} + | wc -l
