@@ -1,17 +1,23 @@
 package bootcamp
 
 import (
-	"fmt"
-
 	"bootcamp/firststruct"
+
+	"github.com/alem-platform/ap"
 )
+
+func PrintString(s string) {
+	for _, c := range s {
+		ap.PutRune(c)
+	}
+}
 
 func PrintUserInfo(u firststruct.User) {
 	yesno := "yes"
 	if u.PasswordReliability() == "undefined" {
 		yesno = "no"
 	}
-	fmt.Printf("Name: %s\nHasPassword: %s\n", u.Name, yesno)
+	PrintString("Name: " + u.Name + "\nHasPassword: " + yesno + "\n")
 }
 
 // func main() {
