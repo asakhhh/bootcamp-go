@@ -1,29 +1,40 @@
 package bootcamp
 
 type Lock struct {
-	isLocked bool
+	isLocked *bool
 }
 
 func (l Lock) Lock() bool {
-	if l.isLocked {
+	if *l.isLocked {
 		return false
 	}
-	l.isLocked = true
+	*l.isLocked = true
 	return true
 }
 
 func (l Lock) Unlock() bool {
-	if !l.isLocked {
+	if !*l.isLocked {
 		return false
 	}
-	l.isLocked = false
+	*l.isLocked = false
 	return true
 }
 
 func (l Lock) IsLocked() bool {
-	return l.isLocked
+	return *l.isLocked
 }
 
 func NewLock() Lock {
-	return Lock{false}
+	a := false
+	return Lock{&a}
 }
+
+// func main() {
+// 	lock := NewLock()
+// 	fmt.Println(lock.IsLocked()) // false
+// 	fmt.Println(lock.Unlock())   // false
+// 	fmt.Println(lock.Lock())     // true
+// 	fmt.Println(lock.Lock())     // false
+// 	fmt.Println(lock.IsLocked()) // true
+// 	fmt.Println(lock.Unlock())   // true
+// }
