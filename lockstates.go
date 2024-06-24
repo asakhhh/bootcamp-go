@@ -23,3 +23,7 @@ func (l Lock) Unlock() bool {
 func (l Lock) IsLocked() bool {
 	return l.isLocked
 }
+
+func Newlock() Lock {
+	return Lock{false}
+}
