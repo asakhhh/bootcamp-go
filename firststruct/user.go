@@ -1,7 +1,7 @@
 package firststruct
 
 type User struct {
-	name     string
+	Name     string
 	password string
 }
 
