@@ -24,6 +24,6 @@ func (l Lock) IsLocked() bool {
 	return l.isLocked
 }
 
-func Newlock() Lock {
+func NewLock() Lock {
 	return Lock{false}
 }
