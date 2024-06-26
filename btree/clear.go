@@ -10,4 +10,5 @@ func (n *BTreeNode) NodeClear() {
 
 func (b *BTree) Clear() {
 	b.Root.NodeClear()
+	b.Root = nil
 }
