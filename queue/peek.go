@@ -1,5 +1,8 @@
 package bootcamp
 
 func (q *Queue) Peek() interface{} {
-	return q.list.Head
+	if q.list.Head == nil {
+		return nil
+	}
+	return q.list.Head.Value
 }
