@@ -19,5 +19,6 @@ func (l *List) RemoveIf(fn func(n *ListNode) bool) {
 		} else {
 			prevNode = curNode
 		}
+		curNode = curNode.Next
 	}
 }
