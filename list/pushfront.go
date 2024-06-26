@@ -7,6 +7,6 @@ func (l *List) PushFront(v interface{}) {
 		l.Tail = &newnode
 	} else {
 		newnode.Next = l.Head
-		l.Head = newnode.Next
+		l.Head = &newnode
 	}
 }
