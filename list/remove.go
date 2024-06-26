@@ -1,16 +1,17 @@
 package bootcamp
 
 func (l *List) Remove(n *ListNode) {
-	if l.Head == n {
+	if l.Head == n { // len == 1
 		l.Head = l.Head.Next
 		if l.Tail == n {
 			l.Tail = nil
 		}
 		return
 	}
+	// len > 1
 
 	prevNode := l.Head
-	for prevNode != nil && prevNode != n {
+	for prevNode != nil && prevNode.Next != n {
 		prevNode = prevNode.Next
 	}
 	if prevNode == nil {
