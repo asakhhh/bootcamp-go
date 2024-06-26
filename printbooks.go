@@ -41,7 +41,7 @@ func printString(s string) {
 }
 
 func PrintBooks(books []*Book) {
-	lenname, lenauthor, lenyear := 0, 0, 0
+	lenname, lenauthor := 0, 0
 	for _, book := range books {
 		if len(book.Name) > lenname {
 			lenname = len(book.Name)
@@ -49,13 +49,10 @@ func PrintBooks(books []*Book) {
 		if len(book.Author) > lenauthor {
 			lenauthor = len(book.Author)
 		}
-		if len(toString(book.Year)) > lenyear {
-			lenyear = len(toString(book.Year))
-		}
 	}
 	printString(trailToLen("Name", lenname) + " " + trailToLen("Author", lenauthor) + " " + "Year\n")
 	for _, book := range books {
-		printString(trailToLen(book.Name, lenname) + " " + trailToLen(book.Author, lenauthor) + " " + trailToLen(toString(book.Year), lenyear) + "\n")
+		printString(trailToLen(book.Name, lenname) + " " + trailToLen(book.Author, lenauthor) + " " + toString(book.Year) + "\n")
 	}
 }
 
