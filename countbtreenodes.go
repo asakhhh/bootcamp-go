@@ -9,6 +9,6 @@ func Size(n *btree.BTreeNode) int {
 	return 1 + Size(n.Left) + Size(n.Right)
 }
 
-func CountBTreeNodes(b *btree.BTree) int {
+func CountBtreeNodes(b *btree.BTree) int {
 	return Size(b.Root)
 }
