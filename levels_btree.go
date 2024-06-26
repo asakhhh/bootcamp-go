@@ -14,7 +14,7 @@ func LevelsBTreeNode(n *btree.BTreeNode, lev int) int {
 		return lev
 	}
 	if n.Left != nil {
-		lev = max(lev, LevelsBTreeNode(n.Left, lev+1))
+		return max(lev, LevelsBTreeNode(n.Left, lev+1))
 	}
 	return max(lev, LevelsBTreeNode(n.Right, lev+1))
 }
