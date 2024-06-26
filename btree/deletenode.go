@@ -40,15 +40,15 @@ func (b *BTree) DeleteNode(value int) {
 		curNode.Parent = nil
 		curNode.Right = nil
 	} else {
-		newNode := curNode.Left
-		for newNode.Right != nil {
-			newNode = newNode.Right
+		newNode := curNode.Right
+		for newNode.Left != nil {
+			newNode = newNode.Left
 		}
 		curNode.Value = newNode.Value
 		if newNode.Parent.Left == newNode {
-			newNode.Parent.Left = newNode.Left
+			newNode.Parent.Left = newNode.Right
 		} else {
-			newNode.Parent.Right = newNode.Left
+			newNode.Parent.Right = newNode.Right
 		}
 	}
 }
