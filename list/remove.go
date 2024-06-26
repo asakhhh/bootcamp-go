@@ -3,7 +3,7 @@ package bootcamp
 func (l *List) Remove(n *ListNode) {
 	if l.Head == n {
 		l.Head = l.Head.Next
-		if l.Head == nil {
+		if l.Tail == n {
 			l.Tail = nil
 		}
 		return
@@ -16,15 +16,12 @@ func (l *List) Remove(n *ListNode) {
 	if prevNode == nil {
 		return
 	}
-
-	nextNode := n.Next
-	prevNode.Next = nextNode
-	if l.Head == n {
-		l.Head = n.Next
-	}
 	if l.Tail == n {
 		l.Tail = prevNode
 	}
+
+	nextNode := n.Next
+	prevNode.Next = nextNode
 }
 
 // func main() {
