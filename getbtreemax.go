@@ -1,6 +1,8 @@
 package bootcamp
 
-func GetMax(b *tree.BTree) *BTreeNode {
+import tree "bootcamp/btree"
+
+func GetMax(b *tree.BTree) *tree.BTreeNode {
 	curNode := b.Root
 	if curNode == nil {
 		return nil
