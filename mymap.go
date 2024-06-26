@@ -30,7 +30,12 @@ func (m *MyMap) Get(k string) interface{} {
 }
 
 func (m *MyMap) Has(k string) bool {
-	return m.Get(k) != nil
+	for i := range m.mp {
+		if m.mp[i].Key == k {
+			return true
+		}
+	}
+	return false
 }
 
 func (m *MyMap) Delete(k string) {
