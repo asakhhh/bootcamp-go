@@ -23,7 +23,9 @@ func toString(n int) string {
 	if minus {
 		res = "-" + res
 	}
-
+	if res == "" {
+		return "0"
+	}
 	return res
 }
 
