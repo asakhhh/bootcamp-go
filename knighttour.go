@@ -23,10 +23,8 @@ func KnightTourCount(res *[][][]int, board *[][]int, n, y, x, cnt int) {
 		y += dy[dir]
 		x += dx[dir]
 		if y >= 0 && y < n && x >= 0 && x < n && (*board)[y][x] == 0 {
-			cnt++
-			(*board)[y][x] = cnt
-			KnightTourCount(res, board, n, y, x, cnt)
-			cnt--
+			(*board)[y][x] = cnt + 1
+			KnightTourCount(res, board, n, y, x, cnt+1)
 			(*board)[y][x] = 0
 		}
 		y -= dy[dir]
@@ -45,8 +43,8 @@ func KnightTour(n int) [][][]int {
 	for i := 0; i < n; i++ {
 		board[i] = make([]int, n)
 	}
-	for y := 0; y < n; y++ {
-		for x := 0; x < n; x++ {
+	for y := 0; y < 1; y++ {
+		for x := 0; x < 1; x++ {
 			board[y][x] = 1
 			KnightTourCount(&res, &board, n, y, x, 1)
 			board[y][x] = 0
@@ -66,28 +64,5 @@ func KnightTour(n int) [][][]int {
 // }
 
 // func main() {
-// 	solutions5 := KnightTour(5)
-// 	PrintMatrix(solutions5[0])
-// 	// Output:
-// 	// 1   14  9   20  3
-// 	// 24  19  2   15  10
-// 	// 13  8   25  4   21
-// 	// 18  23  6   11  16
-// 	// 7   12  17  22  5
-
-// 	fmt.Println()
-
-// 	PrintMatrix(solutions5[1])
-// 	// Output:
-// 	// 1   14  9   20  3
-// 	// 24  19  2   15  10
-// 	// 13  8   23  4   21
-// 	// 18  25  6   11  16
-// 	// 7   12  17  22  5
-
-// 	solutions2 := KnightTour(2)
-// 	fmt.Println("KnightTour(2):", len(solutions2)) // KnightTour(2): 0
-
-// 	solutions1 := KnightTour(1)
-// 	fmt.Println("KnightTour(1):", len(solutions1)) // KnightTour(1): 1
+// 	fmt.Println(len(KnightTour(5)))
 // }
