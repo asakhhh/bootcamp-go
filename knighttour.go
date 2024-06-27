@@ -36,6 +36,11 @@ func KnightTourCount(res *[][][]int, board *[][]int, n, y, x, cnt int) {
 
 func KnightTour(n int) [][][]int {
 	res := make([][][]int, 0)
+
+	if n <= 0 {
+		return res
+	}
+
 	board := make([][]int, n)
 	for i := 0; i < n; i++ {
 		board[i] = make([]int, n)
